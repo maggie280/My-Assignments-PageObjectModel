@@ -1,36 +1,42 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import base.BaseClass;
 
 public class CreateAccountPage extends BaseClass {
+	
+	public CreateAccountPage(ChromeDriver driver) {
+		this.driver=driver;
+		
+	}
 
 	
-	public CreateAccountPage enterAccountName() {
+	public CreateAccountPage enterAccountName(String accountname) {
 		
-		driver.findElement(By.id("accountName")).sendKeys("Leaf");	
+		driver.findElement(By.id("accountName")).sendKeys(accountname);	
 		return this;
 	}
 	
-	public CreateAccountPage enterDescription() {
+	public CreateAccountPage enterDescription(String description) {
 		
-		driver.findElement(By.name("description")).sendKeys("Selenium Automation Tester");
+		driver.findElement(By.name("description")).sendKeys(description);
 		return this;
 	}
 	
-	public CreateAccountPage enterNoOfEmployees() {
+	public CreateAccountPage enterNoOfEmployees(String noofemp) {
 		
-		driver.findElement(By.id("numberEmployees")).sendKeys("500");
+		driver.findElement(By.id("numberEmployees")).sendKeys(noofemp);
 		
 		return this;
 		
 
 	}
 	
-	public CreateAccountPage enterSiteName() {
+	public CreateAccountPage enterSiteName(String sitename) {
 		
-		driver.findElement(By.id("officeSiteName")).sendKeys("LeafTaps");
+		driver.findElement(By.id("officeSiteName")).sendKeys(sitename);
 		
 		return this;
 		
@@ -40,7 +46,7 @@ public class CreateAccountPage extends BaseClass {
 		
 		driver.findElement(By.className("smallSubmit")).click();
 		
-		return new VeiwAccountPage();
+		return new VeiwAccountPage(driver);
 		
 
 	}
